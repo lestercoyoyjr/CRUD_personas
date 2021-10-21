@@ -1,3 +1,6 @@
+Disclaimer: El proyecto pertenece a Codigos de Programacion, sin embargo, debido a que la version que muestran alli es de 2017
+            este esta hecho para funcionar a partir de 2021.
+
 Proyecto realizado con fines educativos. Version 1.0 funcional desde Octubre de 2021.
 
 Este proyecto nos muestra una pequenya guia de usuarios (podria decirse que es una guia telefonica y de correos).
