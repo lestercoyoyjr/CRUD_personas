@@ -40,7 +40,7 @@
         <div class="container">
             <!--Titulo -->
             <div class="row">
-                <h1 style="text-align:center"> <br> Curso de PHP y MySQL </h1>
+                <h1 style="text-align:center"> <br> Registro de Personas </h1>
             </div>
             <!--Agregar un link con boton-->
             <div class="row">
