@@ -19,7 +19,7 @@
 
             <!--Formulario-->
             <!--Metodo en PHP para enviar el formulario-->
-            <form class="form-horizontal" method="POST" action="guardar.php" autocomplete="off">		    
+            <form class="form-horizontal" method="POST" action="guardar.php" enctype="multipart/form-data" autocomplete="off">		    
                 <br>
                 <!--Nombre-->
                 <div class="row">
@@ -101,6 +101,19 @@
                     </div>
                 </div>
                 <br>
+                <!--Subir imagen-->
+                <div class="row">
+                    <div class="col-sm-1">
+                        <label for="archivo" class="col-sm-2 control-label">Archivo</label>
+                    </div>
+					<div class="col-sm-11">
+						<input type="file" class="form-control" id="archivo" name="archivo">
+                        <!--input type="file" class="form-control" id="archivo" accept="image/*" name="archivo"-->
+                        <!--accept="application/pdf"-->
+					</div>
+			    </div>
+                <br>
+
                 <!--Guardar y Regresar-->
                 <div class="row">
                     <!--La primera solo sirve para tabular-->
