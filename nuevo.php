@@ -108,8 +108,8 @@
                     </div>
 					<div class="col-sm-11">
 						<input type="file" class="form-control" id="archivo" name="archivo">
-                        <!--input type="file" class="form-control" id="archivo" accept="image/*" name="archivo"-->
-                        <!--accept="application/pdf"-->
+                        <!--<input type="file" class="form-control" id="archivo" accept="image/*" name="archivo"-->
+                        <!--accept="application/pdf">-->
 					</div>
 			    </div>
                 <br>
