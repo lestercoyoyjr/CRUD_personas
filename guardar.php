@@ -1,5 +1,11 @@
 <?php
 
+    // add size to image
+    define('KB', 1024);
+    define('MB', 1048576);
+    define('GB', 1073741824);
+    define('TB', 1099511627776);
+
     require 'conexion.php';
 
     $nombre = $_POST['nombre'];
@@ -37,10 +43,10 @@
     else{
         // $permitidos = array("image/*");
         $permitidos = array("image/*");
-        $limite_kb = 3000;
+        $limite_img = 500;
         
         // Si el archivo es permitido y no hay problema con el tamanyo, entonces procede a guardar
-        if(in_array($_FILES["archivo"]["type"], $permitidos) && $_FILES["archivo"]["size"] <= $limite_kb * 1024){
+        if(in_array($_FILES["archivo"]["type"], $permitidos) && $_FILES["archivo"]["size"] <= $limite_img * 1048576){
             // indicaremos la ruta en la que se va a guardar
             $ruta = 'files/'.$id_insert.'/';
             $archivo = $ruta.$_FILES["archivo"]["name"];
