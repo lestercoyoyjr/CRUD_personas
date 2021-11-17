@@ -3,8 +3,8 @@
     // add size to image
     define('KB', 1024);
     define('MB', 1048576);
-    define('GB', 1073741824);
-    define('TB', 1099511627776);
+    //define('GB', 1073741824);
+    //define('TB', 1099511627776);
 
     require 'conexion.php';
 
@@ -39,14 +39,13 @@
     // agregar el registro para imagen
     if ($_FILES["archivo"]["error"]>0){
         echo "Error al cargar archivo";
-    }
-    else{
+    } else {
         // $permitidos = array("image/*");
-        $permitidos = array("image/*");
-        $limite_img = 500;
+        $permitidos = array("image/gif", "image/png", "image/jpg", "image/jpeg", "application/pdf");
+        $limite_img = 5*MB;
         
         // Si el archivo es permitido y no hay problema con el tamanyo, entonces procede a guardar
-        if(in_array($_FILES["archivo"]["type"], $permitidos) && $_FILES["archivo"]["size"] <= $limite_img * 1048576){
+        if(in_array($_FILES["archivo"]["type"], $permitidos) && $_FILES["archivo"]["size"] <= $limite_img){
             // indicaremos la ruta en la que se va a guardar
             $ruta = 'files/'.$id_insert.'/';
             $archivo = $ruta.$_FILES["archivo"]["name"];
@@ -62,16 +61,13 @@
                 
                 if($resultado){
                     echo "Archivo Guardado";
-                }
-                else{
+                } else{
                     echo "error al guardar archivo";
                 }
-            }
-            else{
+            } else {
                 echo "archivo ya existe";
             }
-        }
-        else{
+        } else {
             echo "archivo no permitido o excede el tamanyo";
         }
     }
