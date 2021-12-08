@@ -18,8 +18,35 @@
         <!--Las librerias de estilo-->
         <link href="css/bootstrap.min.css" rel="stylesheet">
         <link rel="stylesheet" href="css/bootstrap-theme.css">
+        <link rel="stylesheet" type="text/css" href="your_website_domain/css_root/flaticon.css">
+
+        <!--Usar fontawesome ya que glyphicon no tiene soporte a partir de bootstrap 3.3 o si lo tiene se ve mal-->
+        <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+        <!--link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"-->
         <script src="js/jquery-3.6.0.min.js"></script>
         <script src="js/bootstrap.min.js"></script>
+
+        <!--Eliminar con trash-->
+        <script type="text/javascript">
+            $(document).ready(function() {
+               $('.delete').click(function (){
+                    var parent = $(this).parent().attr('id');
+                    var service = $(this).parent().attr('data');
+                    var dataString = 'id='+service;
+
+                    $.ajax({
+                        type: 'POST',
+                        url: "del_file.php",
+                        data: dataString,
+                        success: function(){
+                            location.reload();
+                        }  
+                    });
+
+               });
+            });
+        </script>
+
     </head>
 
     <body>
@@ -31,7 +58,7 @@
 
             <!--Formulario-->
             <!--Metodo en PHP para enviar el formulario-->
-            <form class="form-horizontal" method="POST" action="guardar.php" enctype="multipart/form-data" autocomplete="off">		    
+            <form class="form-horizontal" method="POST" action="update.php" enctype="multipart/form-data" autocomplete="off">		    
                 <br>
                 <!--Nombre-->
                 <div class="row">
@@ -125,6 +152,9 @@
 					<div class="col-sm-11">
 						<input type="file" class="form-control" id="archivo" name="archivo">
                         <!-- modificar imagen -->
+                        <br>
+                        <br>
+                        <br>
 
                         <?php
                             $path = "files/".$id;
@@ -133,9 +163,10 @@
                                 while($archivo = readdir($directorio))
                                 {
                                     if(!is_dir($archivo)){
-                                        echo "<div data = '".$path."/".$archivo."'><a href='".$path."/".$archivo."'title='Ver archivo adjunto'><span class = 'glyphicon glyphicon-picture'></span></a>";
-                                        echo "$archivo <a href='#' class = 'delete' title = 'Ver Archivo Adjunto'><span class = 'glyphicon glyphicon-trash' aria-hidden = 'true'></span></a></div>";
-                                        echo "<img src='files/$id/$archivo' width='300'/>";
+
+                                        echo "<div data = '".$path."/".$archivo."'><a href='".$path."/".$archivo."'title='Ver Archivo Adjunto'><span class = 'icon-picture'></span></a>";
+                                        echo "$archivo <a href='#' class = 'delete' title = 'Ver Archivo Adjunto'><span class = 'icon-trash' aria-hidden = 'true'></span></a></div>";
+                                        echo "<img src='files/$id/$archivo' width='400'/>";
                                     }
                                 }
                             }
